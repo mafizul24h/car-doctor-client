@@ -1,0 +1,42 @@
+[
+    {
+      "_id": 1,
+      "name": "John Doe",
+      "designation": "Customer",
+      "image": "https://franchisematch.com/wp-content/uploads/2015/02/john-doe.jpg",
+      "review": "Excellent service! The staff was very knowledgeable and efficient. My car was fixed quickly, and I was kept informed throughout the process.",
+      "rating": 5
+    },
+    {
+      "_id": 2,
+      "name": "Jane Smith",
+      "designation": "Client",
+      "image": "https://learnyzen.com/wp-content/uploads/2017/08/test1-481x385.png",
+      "review": "Friendly and professional service. I appreciate the attention to detail in explaining the repairs needed. Will definitely come back for future services.",
+      "rating": 4
+    },
+    {
+      "_id": 3,
+      "name": "Bob Johnson",
+      "designation": "Regular Customer",
+      "image": "https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/815/cached.offlinehbpl.hbpl.co.uk/news/ORP/B4034D5B-B9CD-0FDA-A4A4B94A79E709491-20160616043202649.jpg",
+      "review": "Always a pleasant experience at this service center. The team is reliable and provides quality service. Highly recommended.",
+      "rating": 5
+    },
+    {
+      "_id": 4,
+      "name": "Emily Davis",
+      "designation": "Satisfied Customer",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkFozGAvUgefhzwXKkK-RNjBaM7hudYOWlIstDCyrEZ7O24T53KKN67Eh5XdgDgZLEC4g&usqp=CAU",
+      "review": "Prompt and efficient service. The staff goes above and beyond to ensure customer satisfaction. I trust them with my car maintenance.",
+      "rating": 4
+    },
+    {
+      "_id": 5,
+      "name": "Mark Thompson",
+      "designation": "Car Enthusiast",
+      "image": "https://d2oto3d7z6t29c.cloudfront.net/profile/transformed/66/db/243203_44c79d4187814c82a78afd10c279c5ce.jpg",
+      "review": "Impressed with the technical expertise of the team. They were able to diagnose and fix a persistent issue",
+      "rating": 4.5
+    }
+]
