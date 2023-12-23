@@ -31,7 +31,6 @@ const Team = () => {
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={30}
-                    centeredSlides={true}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,
@@ -139,7 +138,6 @@ const Team = () => {
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={30}
-                    centeredSlides={true}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,

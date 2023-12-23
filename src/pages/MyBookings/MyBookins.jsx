@@ -2,30 +2,50 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Bookings from './Bookings';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const MyBookins = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [search, setSearch] = useState('');
     const [control, setControl] = useState(null);
+    const navigate = useNavigate();
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const url = `https://car-doctor-server1.vercel.app/bookings?email=${user?.email}`
     useEffect(() => {
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('car-access-token')}`
+            }
+        })
             .then(res => res.json())
-            .then(data => setBookings(data));
+            .then(data => {
+                if (!data.error) {
+                    setBookings(data);
+                } else {
+                    logOut()
+                        .then(() => {
+                            navigate('/login');
+                        }).catch(error => console.log(error))
+                }
+
+            });
         setControl(false);
-    }, [url, control]);
+    }, [url, control, navigate, setControl]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookingSearch/${searchText}`)
+        fetch(`https://car-doctor-server1.vercel.app/bookingSearch/${searchText}`)
             .then(res => res.json())
-            .then(data => setBookings(data))
-    }, [searchText]);
+            .then(data => {
+                const myBookings = data.filter(book => book.email === user?.email);
+                setBookings(myBookings);
+            })
+    }, [searchText, user]);
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/bookingSearch/${search}`)
+        fetch(`https://car-doctor-server1.vercel.app/bookingSearch/${search}`)
             .then(res => res.json())
             .then(data => setBookings(data))
     }
@@ -41,7 +61,7 @@ const MyBookins = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/bookings/${id}`, {
+                fetch(`https://car-doctor-server1.vercel.app/bookings/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -73,7 +93,7 @@ const MyBookins = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // const update = {status: 'Confirmed'};
-                fetch(`http://localhost:5000/bookings/${id}`, {
+                fetch(`https://car-doctor-server1.vercel.app/bookings/${id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

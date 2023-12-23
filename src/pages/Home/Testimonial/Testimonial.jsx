@@ -31,7 +31,6 @@ const Testimonial = () => {
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={30}
-                    centeredSlides={true}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,
@@ -68,7 +67,6 @@ const Testimonial = () => {
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={30}
-                    centeredSlides={true}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,

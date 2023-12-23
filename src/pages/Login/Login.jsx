@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from './../../../src/assets/images/login/login.svg'
-import googleIcon from './../../assets/icons/google-icon.png'
 import { AuthContext } from '../../providers/AuthProvider';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
@@ -16,7 +16,7 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        // console.log(email, password);
 
         signIn(email, password)
             .then(result => {
@@ -49,15 +49,12 @@ const Login = () => {
                                 <Link className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="form-control">
                             <input type="submit" className="btn btn-primary" value="Login" />
                         </div>
-                        <div>
-                            <p className='text-center my-2'>Or Login With</p>
-                            <img className='h-6 w-6 mx-auto rounded-full' src={googleIcon} alt="Google Icon" />
-                            <p className='text-center mt-2'>New to here? <Link to='/signup' className='text-orange-600 font-bold'>Sign Up</Link></p>
-                        </div>
+                        <p className='text-center mt-2'>New to here? <Link to='/signup' className='text-orange-600 font-bold'>Sign Up</Link></p>
                     </form>
+                    <SocialLogin />
                 </div>
             </div>
         </div>

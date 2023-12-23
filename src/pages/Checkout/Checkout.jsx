@@ -21,7 +21,7 @@ const Checkout = () => {
             customerName: name, img, date, email, price, service: title, service_id: _id
         }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://car-doctor-server1.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
