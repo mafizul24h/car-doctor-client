@@ -239,7 +239,7 @@ const MyBookins = () => {
                         {number}
                     </button>)
                 }
-                <select value={itemsPages} onChange={handleSelectChange}>
+                <select className='btn ' value={itemsPages} onChange={handleSelectChange}>
                     {options.map((option, index) => <option key={index} value={option}>
                         {option}
                     </option>)}
